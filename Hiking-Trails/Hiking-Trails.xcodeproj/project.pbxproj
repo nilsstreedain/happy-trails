@@ -1,0 +1,611 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FAEFDA0A290B45BF00C591B2 /* Hiking_TrailsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDA09290B45BF00C591B2 /* Hiking_TrailsApp.swift */; };
+		FAEFDA0C290B45BF00C591B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDA0B290B45BF00C591B2 /* ContentView.swift */; };
+		FAEFDA0E290B45C000C591B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEFDA0D290B45C000C591B2 /* Assets.xcassets */; };
+		FAEFDA11290B45C000C591B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEFDA10290B45C000C591B2 /* Preview Assets.xcassets */; };
+		FAEFDA13290B45C000C591B2 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDA12290B45C000C591B2 /* Persistence.swift */; };
+		FAEFDA16290B45C000C591B2 /* Hiking_Trails.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDA14290B45C000C591B2 /* Hiking_Trails.xcdatamodeld */; };
+		FAEFDA21290B45C000C591B2 /* Hiking_TrailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDA20290B45C000C591B2 /* Hiking_TrailsTests.swift */; };
+		FAEFDA2B290B45C000C591B2 /* Hiking_TrailsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDA2A290B45C000C591B2 /* Hiking_TrailsUITests.swift */; };
+		FAEFDA2D290B45C000C591B2 /* Hiking_TrailsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDA2C290B45C000C591B2 /* Hiking_TrailsUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FAEFDA1D290B45C000C591B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAEFD9FE290B45BF00C591B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAEFDA05290B45BF00C591B2;
+			remoteInfo = "Hiking-Trails";
+		};
+		FAEFDA27290B45C000C591B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAEFD9FE290B45BF00C591B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAEFDA05290B45BF00C591B2;
+			remoteInfo = "Hiking-Trails";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FAEFDA06290B45BF00C591B2 /* Hiking-Trails.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hiking-Trails.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAEFDA09290B45BF00C591B2 /* Hiking_TrailsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hiking_TrailsApp.swift; sourceTree = "<group>"; };
+		FAEFDA0B290B45BF00C591B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FAEFDA0D290B45C000C591B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAEFDA10290B45C000C591B2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FAEFDA12290B45C000C591B2 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		FAEFDA15290B45C000C591B2 /* Hiking_Trails.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hiking_Trails.xcdatamodel; sourceTree = "<group>"; };
+		FAEFDA17290B45C000C591B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAEFDA1C290B45C000C591B2 /* Hiking-TrailsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hiking-TrailsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAEFDA20290B45C000C591B2 /* Hiking_TrailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hiking_TrailsTests.swift; sourceTree = "<group>"; };
+		FAEFDA26290B45C000C591B2 /* Hiking-TrailsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hiking-TrailsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAEFDA2A290B45C000C591B2 /* Hiking_TrailsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hiking_TrailsUITests.swift; sourceTree = "<group>"; };
+		FAEFDA2C290B45C000C591B2 /* Hiking_TrailsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hiking_TrailsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAEFDA03290B45BF00C591B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAEFDA19290B45C000C591B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAEFDA23290B45C000C591B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FAEFD9FD290B45BF00C591B2 = {
+			isa = PBXGroup;
+			children = (
+				FAEFDA08290B45BF00C591B2 /* Hiking-Trails */,
+				FAEFDA1F290B45C000C591B2 /* Hiking-TrailsTests */,
+				FAEFDA29290B45C000C591B2 /* Hiking-TrailsUITests */,
+				FAEFDA07290B45BF00C591B2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FAEFDA07290B45BF00C591B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAEFDA06290B45BF00C591B2 /* Hiking-Trails.app */,
+				FAEFDA1C290B45C000C591B2 /* Hiking-TrailsTests.xctest */,
+				FAEFDA26290B45C000C591B2 /* Hiking-TrailsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAEFDA08290B45BF00C591B2 /* Hiking-Trails */ = {
+			isa = PBXGroup;
+			children = (
+				FAEFDA09290B45BF00C591B2 /* Hiking_TrailsApp.swift */,
+				FAEFDA0B290B45BF00C591B2 /* ContentView.swift */,
+				FAEFDA0D290B45C000C591B2 /* Assets.xcassets */,
+				FAEFDA12290B45C000C591B2 /* Persistence.swift */,
+				FAEFDA17290B45C000C591B2 /* Info.plist */,
+				FAEFDA14290B45C000C591B2 /* Hiking_Trails.xcdatamodeld */,
+				FAEFDA0F290B45C000C591B2 /* Preview Content */,
+			);
+			path = "Hiking-Trails";
+			sourceTree = "<group>";
+		};
+		FAEFDA0F290B45C000C591B2 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FAEFDA10290B45C000C591B2 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FAEFDA1F290B45C000C591B2 /* Hiking-TrailsTests */ = {
+			isa = PBXGroup;
+			children = (
+				FAEFDA20290B45C000C591B2 /* Hiking_TrailsTests.swift */,
+			);
+			path = "Hiking-TrailsTests";
+			sourceTree = "<group>";
+		};
+		FAEFDA29290B45C000C591B2 /* Hiking-TrailsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FAEFDA2A290B45C000C591B2 /* Hiking_TrailsUITests.swift */,
+				FAEFDA2C290B45C000C591B2 /* Hiking_TrailsUITestsLaunchTests.swift */,
+			);
+			path = "Hiking-TrailsUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAEFDA05290B45BF00C591B2 /* Hiking-Trails */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAEFDA30290B45C000C591B2 /* Build configuration list for PBXNativeTarget "Hiking-Trails" */;
+			buildPhases = (
+				FAEFDA02290B45BF00C591B2 /* Sources */,
+				FAEFDA03290B45BF00C591B2 /* Frameworks */,
+				FAEFDA04290B45BF00C591B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hiking-Trails";
+			productName = "Hiking-Trails";
+			productReference = FAEFDA06290B45BF00C591B2 /* Hiking-Trails.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FAEFDA1B290B45C000C591B2 /* Hiking-TrailsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAEFDA33290B45C000C591B2 /* Build configuration list for PBXNativeTarget "Hiking-TrailsTests" */;
+			buildPhases = (
+				FAEFDA18290B45C000C591B2 /* Sources */,
+				FAEFDA19290B45C000C591B2 /* Frameworks */,
+				FAEFDA1A290B45C000C591B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAEFDA1E290B45C000C591B2 /* PBXTargetDependency */,
+			);
+			name = "Hiking-TrailsTests";
+			productName = "Hiking-TrailsTests";
+			productReference = FAEFDA1C290B45C000C591B2 /* Hiking-TrailsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FAEFDA25290B45C000C591B2 /* Hiking-TrailsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAEFDA36290B45C000C591B2 /* Build configuration list for PBXNativeTarget "Hiking-TrailsUITests" */;
+			buildPhases = (
+				FAEFDA22290B45C000C591B2 /* Sources */,
+				FAEFDA23290B45C000C591B2 /* Frameworks */,
+				FAEFDA24290B45C000C591B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAEFDA28290B45C000C591B2 /* PBXTargetDependency */,
+			);
+			name = "Hiking-TrailsUITests";
+			productName = "Hiking-TrailsUITests";
+			productReference = FAEFDA26290B45C000C591B2 /* Hiking-TrailsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAEFD9FE290B45BF00C591B2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					FAEFDA05290B45BF00C591B2 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					FAEFDA1B290B45C000C591B2 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = FAEFDA05290B45BF00C591B2;
+					};
+					FAEFDA25290B45C000C591B2 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = FAEFDA05290B45BF00C591B2;
+					};
+				};
+			};
+			buildConfigurationList = FAEFDA01290B45BF00C591B2 /* Build configuration list for PBXProject "Hiking-Trails" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FAEFD9FD290B45BF00C591B2;
+			productRefGroup = FAEFDA07290B45BF00C591B2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAEFDA05290B45BF00C591B2 /* Hiking-Trails */,
+				FAEFDA1B290B45C000C591B2 /* Hiking-TrailsTests */,
+				FAEFDA25290B45C000C591B2 /* Hiking-TrailsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FAEFDA04290B45BF00C591B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAEFDA11290B45C000C591B2 /* Preview Assets.xcassets in Resources */,
+				FAEFDA0E290B45C000C591B2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAEFDA1A290B45C000C591B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAEFDA24290B45C000C591B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAEFDA02290B45BF00C591B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAEFDA13290B45C000C591B2 /* Persistence.swift in Sources */,
+				FAEFDA0C290B45BF00C591B2 /* ContentView.swift in Sources */,
+				FAEFDA16290B45C000C591B2 /* Hiking_Trails.xcdatamodeld in Sources */,
+				FAEFDA0A290B45BF00C591B2 /* Hiking_TrailsApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAEFDA18290B45C000C591B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAEFDA21290B45C000C591B2 /* Hiking_TrailsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAEFDA22290B45C000C591B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAEFDA2B290B45C000C591B2 /* Hiking_TrailsUITests.swift in Sources */,
+				FAEFDA2D290B45C000C591B2 /* Hiking_TrailsUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FAEFDA1E290B45C000C591B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAEFDA05290B45BF00C591B2 /* Hiking-Trails */;
+			targetProxy = FAEFDA1D290B45C000C591B2 /* PBXContainerItemProxy */;
+		};
+		FAEFDA28290B45C000C591B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAEFDA05290B45BF00C591B2 /* Hiking-Trails */;
+			targetProxy = FAEFDA27290B45C000C591B2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FAEFDA2E290B45C000C591B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FAEFDA2F290B45C000C591B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FAEFDA31290B45C000C591B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Hiking-Trails/Preview Content\"";
+				DEVELOPMENT_TEAM = 68746H6U2M;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nilsstreedain.Hiking-Trails";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FAEFDA32290B45C000C591B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Hiking-Trails/Preview Content\"";
+				DEVELOPMENT_TEAM = 68746H6U2M;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nilsstreedain.Hiking-Trails";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FAEFDA34290B45C000C591B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 68746H6U2M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nilsstreedain.Hiking-TrailsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hiking-Trails.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Hiking-Trails";
+			};
+			name = Debug;
+		};
+		FAEFDA35290B45C000C591B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 68746H6U2M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nilsstreedain.Hiking-TrailsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hiking-Trails.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Hiking-Trails";
+			};
+			name = Release;
+		};
+		FAEFDA37290B45C000C591B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 68746H6U2M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nilsstreedain.Hiking-TrailsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Hiking-Trails";
+			};
+			name = Debug;
+		};
+		FAEFDA38290B45C000C591B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 68746H6U2M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nilsstreedain.Hiking-TrailsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Hiking-Trails";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAEFDA01290B45BF00C591B2 /* Build configuration list for PBXProject "Hiking-Trails" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAEFDA2E290B45C000C591B2 /* Debug */,
+				FAEFDA2F290B45C000C591B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAEFDA30290B45C000C591B2 /* Build configuration list for PBXNativeTarget "Hiking-Trails" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAEFDA31290B45C000C591B2 /* Debug */,
+				FAEFDA32290B45C000C591B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAEFDA33290B45C000C591B2 /* Build configuration list for PBXNativeTarget "Hiking-TrailsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAEFDA34290B45C000C591B2 /* Debug */,
+				FAEFDA35290B45C000C591B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAEFDA36290B45C000C591B2 /* Build configuration list for PBXNativeTarget "Hiking-TrailsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAEFDA37290B45C000C591B2 /* Debug */,
+				FAEFDA38290B45C000C591B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FAEFDA14290B45C000C591B2 /* Hiking_Trails.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FAEFDA15290B45C000C591B2 /* Hiking_Trails.xcdatamodel */,
+			);
+			currentVersion = FAEFDA15290B45C000C591B2 /* Hiking_Trails.xcdatamodel */;
+			path = Hiking_Trails.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FAEFD9FE290B45BF00C591B2 /* Project object */;
+}
