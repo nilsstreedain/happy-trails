@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA56BF88291B2B9F00F1A002 /* Hiking-Trails.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Hiking-Trails.entitlements"; sourceTree = "<group>"; };
 		FAEFDA06290B45BF00C591B2 /* Hiking-Trails.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hiking-Trails.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEFDA09290B45BF00C591B2 /* Hiking_TrailsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hiking_TrailsApp.swift; sourceTree = "<group>"; };
 		FAEFDA0B290B45BF00C591B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +100,7 @@
 		FAEFDA08290B45BF00C591B2 /* Hiking-Trails */ = {
 			isa = PBXGroup;
 			children = (
+				FA56BF88291B2B9F00F1A002 /* Hiking-Trails.entitlements */,
 				FAEFDA09290B45BF00C591B2 /* Hiking_TrailsApp.swift */,
 				FAEFDA0B290B45BF00C591B2 /* ContentView.swift */,
 				FAEFDA0D290B45C000C591B2 /* Assets.xcassets */,
@@ -424,6 +426,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Hiking-Trails/Hiking-Trails.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hiking-Trails/Preview Content\"";
@@ -454,6 +457,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Hiking-Trails/Hiking-Trails.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hiking-Trails/Preview Content\"";
