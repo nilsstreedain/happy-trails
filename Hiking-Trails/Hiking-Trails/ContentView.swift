@@ -20,15 +20,10 @@ struct ContentView: View {
 				.tabItem {
 					Label("Start Hike", systemImage: "map")
 				}
-			Text("Account")
+			Text("Profile")
 				.font(.system(size: 30, weight: .bold, design: .rounded))
 				.tabItem {
 					Label("Account", systemImage: "person.crop.circle.fill")
-				}
-			Text("Settings")
-				.font(.system(size: 30, weight: .bold, design: .rounded))
-				.tabItem {
-					Label("Settings", systemImage: "gear")
 				}
 		}
 	}
