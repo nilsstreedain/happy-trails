@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA619E94291CAC6B00C496AF /* TrailList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA619E93291CAC6B00C496AF /* TrailList.swift */; };
 		FAEFDA0A290B45BF00C591B2 /* Hiking_TrailsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDA09290B45BF00C591B2 /* Hiking_TrailsApp.swift */; };
 		FAEFDA0C290B45BF00C591B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDA0B290B45BF00C591B2 /* ContentView.swift */; };
 		FAEFDA0E290B45C000C591B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEFDA0D290B45C000C591B2 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		FA56BF88291B2B9F00F1A002 /* Hiking-Trails.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Hiking-Trails.entitlements"; sourceTree = "<group>"; };
+		FA619E93291CAC6B00C496AF /* TrailList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailList.swift; sourceTree = "<group>"; };
 		FAEFDA06290B45BF00C591B2 /* Hiking-Trails.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hiking-Trails.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEFDA09290B45BF00C591B2 /* Hiking_TrailsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hiking_TrailsApp.swift; sourceTree = "<group>"; };
 		FAEFDA0B290B45BF00C591B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA619E92291CAC5C00C496AF /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				FA619E93291CAC6B00C496AF /* TrailList.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
 		FAEFD9FD290B45BF00C591B2 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +110,7 @@
 		FAEFDA08290B45BF00C591B2 /* Hiking-Trails */ = {
 			isa = PBXGroup;
 			children = (
+				FA619E92291CAC5C00C496AF /* Tabs */,
 				FA56BF88291B2B9F00F1A002 /* Hiking-Trails.entitlements */,
 				FAEFDA09290B45BF00C591B2 /* Hiking_TrailsApp.swift */,
 				FAEFDA0B290B45BF00C591B2 /* ContentView.swift */,
@@ -269,6 +280,7 @@
 			files = (
 				FAEFDA13290B45C000C591B2 /* Persistence.swift in Sources */,
 				FAEFDA0C290B45BF00C591B2 /* ContentView.swift in Sources */,
+				FA619E94291CAC6B00C496AF /* TrailList.swift in Sources */,
 				FAEFDA16290B45C000C591B2 /* Hiking_Trails.xcdatamodeld in Sources */,
 				FAEFDA0A290B45BF00C591B2 /* Hiking_TrailsApp.swift in Sources */,
 			);
