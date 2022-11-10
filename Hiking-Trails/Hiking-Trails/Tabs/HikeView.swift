@@ -1,5 +1,5 @@
 //
-//  HikeList.swift
+//  HikeView.swift
 //  Hiking-Trails
 //
 //  Created by Nils Streedain on 11/9/22.
@@ -14,7 +14,7 @@ private let itemFormatter: DateFormatter = {
 	return formatter
 }()
 
-struct HikeList: View {
+struct HikeView: View {
 	@Environment(\.managedObjectContext) private var viewContext
 
 	@FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)], animation: .default)
@@ -79,8 +79,8 @@ struct HikeList: View {
 	}
 }
 
-struct HikeList_Previews: PreviewProvider {
+struct HikeView_Previews: PreviewProvider {
 	static var previews: some View {
-		HikeList()
+		HikeView()
 	}
 }

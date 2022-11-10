@@ -11,12 +11,12 @@ import CoreData
 struct ContentView: View {
 	var body: some View {
 		TabView() {
-			HikeList()
+			HikeView()
 				.tabItem {
 					Label("Trails", systemImage: "signpost.right.and.left.fill")
 				}
-			Text("Start Hike")
-				.font(.system(size: 30, weight: .bold, design: .rounded))
+			MapView()
+//				.ignoresSafeArea()
 				.tabItem {
 					Label("Start Hike", systemImage: "map")
 				}
