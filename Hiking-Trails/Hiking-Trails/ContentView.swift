@@ -11,7 +11,7 @@ import CoreData
 struct ContentView: View {
 	var body: some View {
 		TabView() {
-			TrailList()
+			HikeList()
 				.tabItem {
 					Label("Trails", systemImage: "signpost.right.and.left.fill")
 				}
@@ -23,7 +23,7 @@ struct ContentView: View {
 			Text("Profile")
 				.font(.system(size: 30, weight: .bold, design: .rounded))
 				.tabItem {
-					Label("Account", systemImage: "person.crop.circle.fill")
+					Label("Profile", systemImage: "person.crop.circle.fill")
 				}
 		}
 	}
