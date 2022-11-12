@@ -11,12 +11,11 @@ import CoreData
 struct ContentView: View {
 	var body: some View {
 		TabView() {
-			HikeView()
+			TrailView()
 				.tabItem {
 					Label("Trails", systemImage: "signpost.right.and.left.fill")
 				}
-			MapView()
-//				.ignoresSafeArea()
+			LiveHikeView()
 				.tabItem {
 					Label("Start Hike", systemImage: "map")
 				}
@@ -25,6 +24,8 @@ struct ContentView: View {
 				.tabItem {
 					Label("Profile", systemImage: "person.crop.circle.fill")
 				}
+		}.onAppear() {
+			UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
 		}
 	}
 }
