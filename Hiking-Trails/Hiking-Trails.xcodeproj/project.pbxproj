@@ -19,6 +19,7 @@
 		FAEFDA21290B45C000C591B2 /* Hiking_TrailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDA20290B45C000C591B2 /* Hiking_TrailsTests.swift */; };
 		FAEFDA2B290B45C000C591B2 /* Hiking_TrailsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDA2A290B45C000C591B2 /* Hiking_TrailsUITests.swift */; };
 		FAEFDA2D290B45C000C591B2 /* Hiking_TrailsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDA2C290B45C000C591B2 /* Hiking_TrailsUITestsLaunchTests.swift */; };
+		FAF63C6F29244B1100B62353 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF63C6E29244B1100B62353 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		FAEFDA26290B45C000C591B2 /* Hiking-TrailsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hiking-TrailsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEFDA2A290B45C000C591B2 /* Hiking_TrailsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hiking_TrailsUITests.swift; sourceTree = "<group>"; };
 		FAEFDA2C290B45C000C591B2 /* Hiking_TrailsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hiking_TrailsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FAF63C6E29244B1100B62353 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				FA619E93291CAC6B00C496AF /* TrailView.swift */,
 				FAB86F8E291D9575005C0E01 /* MapUIView.swift */,
 				FAD0C0EA291E42BF00E5CDFE /* LiveHikeView.swift */,
+				FAF63C6E29244B1100B62353 /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF63C6F29244B1100B62353 /* ProfileView.swift in Sources */,
 				FAEFDA13290B45C000C591B2 /* Persistence.swift in Sources */,
 				FAB86F8F291D9575005C0E01 /* MapUIView.swift in Sources */,
 				FAEFDA0C290B45BF00C591B2 /* ContentView.swift in Sources */,
