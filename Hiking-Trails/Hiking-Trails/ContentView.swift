@@ -19,8 +19,7 @@ struct ContentView: View {
 				.tabItem {
 					Label("Start Hike", systemImage: "map")
 				}
-			Text("Profile")
-				.font(.system(size: 30, weight: .bold, design: .rounded))
+			ProfileView()
 				.tabItem {
 					Label("Profile", systemImage: "person.crop.circle.fill")
 				}
