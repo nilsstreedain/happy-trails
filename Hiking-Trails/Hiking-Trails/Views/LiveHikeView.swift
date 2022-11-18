@@ -9,15 +9,13 @@ import SwiftUI
 
 struct LiveHikeView: View {
 	@ObservedObject var currHike = Current_Hike()
-	var map = MapUIView()
 	
     var body: some View {
 		VStack {
-//			map.mapPoints.last.
-			map
+			currHike.map
 				.ignoresSafeArea()
 			HStack(spacing: 50) {
-				Label(String(format: "%02d:%02d", currHike.counter / 60, currHike.counter % 60), systemImage: "timer")
+				Label(String(format: "%02d:%02d", Int(currHike.counter) / 60, Int(currHike.counter) % 60), systemImage: "timer")
 				Label("0 MI", systemImage: "lines.measurement.horizontal")
 				Label("0'0\"/MI", systemImage: "figure.run")
 			}
@@ -25,7 +23,8 @@ struct LiveHikeView: View {
 			HStack(spacing: 50) {
 				Label("0 CAL", systemImage: "flame")
 				Label("+0 FT", systemImage: "mountain.2")
-			}.padding(5)
+			}
+			.padding(5)
 			HStack() {
 				if currHike.mode == .stopped {
 					hikeButton(label: "Start Hike", color: Color("AccentColor"), op: self.currHike.start)
@@ -59,8 +58,9 @@ struct hikeButton: View {
 }
 
 class Current_Hike: ObservableObject {
-	@Published var counter: Int = 0
+	@Published var counter: Double = 0
 	@Published var mode: hikeMode = .stopped
+	@Published var map = MapUIView()
 	var timer = Timer()
 	
 	enum hikeMode {
@@ -71,8 +71,10 @@ class Current_Hike: ObservableObject {
 	
 	func start() {
 		mode = .started
+		self.map.startPolyLine()
 		self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
 			self.counter += 1
+			self.map.updatePolyLine()
 		}
 	}
 	
