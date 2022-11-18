@@ -6,32 +6,25 @@
 //
 
 import SwiftUI
-import MapKit
 
 struct LiveHikeView: View {
-	
 	@ObservedObject var currHike = Current_Hike()
 	
     var body: some View {
 		VStack {
-			MapUIView()
+			currHike.map
 				.ignoresSafeArea()
-			HStack() {
-				Spacer()
-				Label(String(format: "%02d", currHike.counter / 60) + ":" + String(format: "%02d", currHike.counter % 60), systemImage: "timer")
-				Spacer()
+			HStack(spacing: 50) {
+				Label(String(format: "%02d:%02d", Int(currHike.counter) / 60, Int(currHike.counter) % 60), systemImage: "timer")
 				Label("0 MI", systemImage: "lines.measurement.horizontal")
-				Spacer()
 				Label("0'0\"/MI", systemImage: "figure.run")
-				Spacer()
-			}.padding(5)
-			HStack() {
-				Spacer()
+			}
+			.padding(5)
+			HStack(spacing: 50) {
 				Label("0 CAL", systemImage: "flame")
-				Spacer()
-				Label("0 FT", systemImage: "mountain.2")
-				Spacer()
-			}.padding(5)
+				Label("+0 FT", systemImage: "mountain.2")
+			}
+			.padding(5)
 			HStack() {
 				if currHike.mode == .stopped {
 					hikeButton(label: "Start Hike", color: Color("AccentColor"), op: self.currHike.start)
@@ -39,17 +32,11 @@ struct LiveHikeView: View {
 					hikeButton(label: "Pause Hike", color: Color.orange, op: self.currHike.pause)
 					hikeButton(label: "End Hike", color: Color.red, op: self.currHike.reset)
 				} else if currHike.mode == .paused {
-					hikeButton(label: "Resume Hike", color: Color("AccentColor"), op: self.currHike.start)
+					hikeButton(label: "Resume Hike", color: Color.green, op: self.currHike.start)
 					hikeButton(label: "End Hike", color: Color.red, op: self.currHike.reset)
 				}
 			}
 		}
-    }
-}
-
-struct LiveHikeView_Previews: PreviewProvider {
-    static var previews: some View {
-        LiveHikeView()
     }
 }
 
@@ -71,8 +58,9 @@ struct hikeButton: View {
 }
 
 class Current_Hike: ObservableObject {
-	@Published var counter: Int = 0
+	@Published var counter: Double = 0
 	@Published var mode: hikeMode = .stopped
+	@Published var map = MapUIView()
 	var timer = Timer()
 	
 	enum hikeMode {
@@ -83,8 +71,10 @@ class Current_Hike: ObservableObject {
 	
 	func start() {
 		mode = .started
+		self.map.startPolyline()
 		self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
 			self.counter += 1
+			self.map.updatePolyline()
 		}
 	}
 	
@@ -97,5 +87,12 @@ class Current_Hike: ObservableObject {
 		mode = .stopped
 		self.counter = 0
 		self.timer.invalidate()
+		self.map.resetPolyline()
+	}
+}
+
+struct LiveHikeView_Previews: PreviewProvider {
+	static var previews: some View {
+		LiveHikeView()
 	}
 }
