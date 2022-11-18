@@ -71,10 +71,10 @@ class Current_Hike: ObservableObject {
 	
 	func start() {
 		mode = .started
-		self.map.startPolyLine()
+		self.map.startPolyline()
 		self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
 			self.counter += 1
-			self.map.updatePolyLine()
+			self.map.updatePolyline()
 		}
 	}
 	
@@ -87,6 +87,7 @@ class Current_Hike: ObservableObject {
 		mode = .stopped
 		self.counter = 0
 		self.timer.invalidate()
+		self.map.resetPolyline()
 	}
 }
 

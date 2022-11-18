@@ -33,18 +33,23 @@ struct MapUIView: UIViewRepresentable {
 	
 	func updateUIView(_ uiView: MKMapView, context: Context) {}
 	
-	mutating func startPolyLine() {
+	mutating func startPolyline() {
 		mapPoints.append(locationManager.location!.coordinate)
 	}
 	
-	mutating func updatePolyLine() {
-		var curr = locationManager.location!
-		var last = CLLocation(latitude: mapPoints.last!.latitude, longitude: mapPoints.last!.longitude)
+	mutating func updatePolyline() {
+		let curr = locationManager.location!
+		let last = CLLocation(latitude: mapPoints.last!.latitude, longitude: mapPoints.last!.longitude)
 		if last.distance(from: curr) > 5 {
 			mapPoints.append(curr.coordinate)
 			var area: [CLLocationCoordinate2D] = [mapPoints[mapPoints.count - 2], mapPoints.last!]
 			mapView.addOverlay(MKPolyline(coordinates: &area, count: 2))
 		}
+	}
+	
+	mutating func resetPolyline() {
+		mapPoints = []
+		mapView.removeOverlays(mapView.overlays)
 	}
 	
 	func makeCoordinator() -> Coordinator {
