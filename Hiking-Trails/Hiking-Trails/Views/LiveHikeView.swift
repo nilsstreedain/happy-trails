@@ -6,31 +6,25 @@
 //
 
 import SwiftUI
-import MapKit
 
 struct LiveHikeView: View {
-	
 	@ObservedObject var currHike = Current_Hike()
+	var map = MapUIView()
 	
     var body: some View {
 		VStack {
-			MapUIView()
+//			map.mapPoints.last.
+			map
 				.ignoresSafeArea()
-			HStack() {
-				Spacer()
-				Label(String(format: "%02d", currHike.counter / 60) + ":" + String(format: "%02d", currHike.counter % 60), systemImage: "timer")
-				Spacer()
+			HStack(spacing: 50) {
+				Label(String(format: "%02d:%02d", currHike.counter / 60, currHike.counter % 60), systemImage: "timer")
 				Label("0 MI", systemImage: "lines.measurement.horizontal")
-				Spacer()
 				Label("0'0\"/MI", systemImage: "figure.run")
-				Spacer()
-			}.padding(5)
-			HStack() {
-				Spacer()
+			}
+			.padding(5)
+			HStack(spacing: 50) {
 				Label("0 CAL", systemImage: "flame")
-				Spacer()
-				Label("0 FT", systemImage: "mountain.2")
-				Spacer()
+				Label("+0 FT", systemImage: "mountain.2")
 			}.padding(5)
 			HStack() {
 				if currHike.mode == .stopped {
@@ -39,17 +33,11 @@ struct LiveHikeView: View {
 					hikeButton(label: "Pause Hike", color: Color.orange, op: self.currHike.pause)
 					hikeButton(label: "End Hike", color: Color.red, op: self.currHike.reset)
 				} else if currHike.mode == .paused {
-					hikeButton(label: "Resume Hike", color: Color("AccentColor"), op: self.currHike.start)
+					hikeButton(label: "Resume Hike", color: Color.green, op: self.currHike.start)
 					hikeButton(label: "End Hike", color: Color.red, op: self.currHike.reset)
 				}
 			}
 		}
-    }
-}
-
-struct LiveHikeView_Previews: PreviewProvider {
-    static var previews: some View {
-        LiveHikeView()
     }
 }
 
@@ -97,5 +85,11 @@ class Current_Hike: ObservableObject {
 		mode = .stopped
 		self.counter = 0
 		self.timer.invalidate()
+	}
+}
+
+struct LiveHikeView_Previews: PreviewProvider {
+	static var previews: some View {
+		LiveHikeView()
 	}
 }

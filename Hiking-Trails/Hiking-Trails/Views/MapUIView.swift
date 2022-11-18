@@ -24,6 +24,7 @@ struct MapUIView: UIViewRepresentable {
 		locationManager.requestWhenInUseAuthorization()
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
 		locationManager.distanceFilter = kCLDistanceFilterNone
+		locationManager.startUpdatingLocation()
 	}
 	
 	func makeUIView(context: Context) -> MKMapView {
@@ -35,8 +36,6 @@ struct MapUIView: UIViewRepresentable {
 		mapView.showsUserLocation = true
 		mapView.setCameraZoomRange(MKMapView.CameraZoomRange(minCenterCoordinateDistance: 1000, maxCenterCoordinateDistance: 1000), animated: false)
 		
-		mapView.addOverlay(MKPolyline(coordinates: mapPoints, count: mapPoints.count))
-		
 		return mapView
 	}
 	
@@ -45,12 +44,6 @@ struct MapUIView: UIViewRepresentable {
 	func makeCoordinator() -> Coordinator {
 		Coordinator(self)
 	}
-}
-
-struct MapUIView_Previews: PreviewProvider {
-    static var previews: some View {
-		MapUIView()
-    }
 }
 
 class Coordinator: NSObject, MKMapViewDelegate {
@@ -68,5 +61,11 @@ class Coordinator: NSObject, MKMapViewDelegate {
 			return renderer
 		}
 		return MKOverlayRenderer()
+	}
+}
+
+struct MapUIView_Previews: PreviewProvider {
+	static var previews: some View {
+		MapUIView()
 	}
 }
