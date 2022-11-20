@@ -71,6 +71,7 @@ class Coordinator: NSObject, MKMapViewDelegate {
 		}
 		return MKOverlayRenderer()
 	}
+    
 }
 
 struct MapUIView_Previews: PreviewProvider {

@@ -15,12 +15,12 @@ struct ContentView: View {
 		TabView(selection: $selectedTab) {
 			LiveHikeView()
 				.tabItem {
-					Label("Start Hike", systemImage: "map")
+					Label("Hike", systemImage: "figure.walk")
 				}
 				.tag(0)
 			TrailView()
 				.tabItem {
-					Label("Trails", systemImage: "signpost.right.and.left.fill")
+					Label("Explore Trails", systemImage: "signpost.right.and.left.fill")
 				}
 				.tag(1)
 			ProfileView()
