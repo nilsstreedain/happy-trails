@@ -9,27 +9,34 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+	@ObservedObject var locationManager = LocationManager.shared
 	@State private var selectedTab = 0
 	
 	var body: some View {
-		TabView(selection: $selectedTab) {
-			LiveHikeView()
-				.tabItem {
-					Label("Start Hike", systemImage: "map")
+		Group {
+			if locationManager.userLocation == nil {
+				LocationRequestView()
+			} else {
+				TabView(selection: $selectedTab) {
+					LiveHikeView()
+						.tabItem {
+							Label("Start Hike", systemImage: "map")
+						}
+						.tag(0)
+					TrailView()
+						.tabItem {
+							Label("Trails", systemImage: "signpost.right.and.left.fill")
+						}
+						.tag(1)
+					ProfileView()
+						.tabItem {
+							Label("Profile", systemImage: "person.crop.circle.fill")
+						}
+						.tag(2)
+				}.onAppear() {
+					UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
 				}
-				.tag(0)
-			TrailView()
-				.tabItem {
-					Label("Trails", systemImage: "signpost.right.and.left.fill")
-				}
-				.tag(1)
-			ProfileView()
-				.tabItem {
-					Label("Profile", systemImage: "person.crop.circle.fill")
-				}
-				.tag(2)
-		}.onAppear() {
-			UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
+			}
 		}
 	}
 }

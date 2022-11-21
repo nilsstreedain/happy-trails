@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA234FE9292B52B00094994B /* LocationRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA234FE8292B52B00094994B /* LocationRequestView.swift */; };
+		FA234FEB292B52EB0094994B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA234FEA292B52EB0094994B /* LocationManager.swift */; };
 		FA619E94291CAC6B00C496AF /* TrailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA619E93291CAC6B00C496AF /* TrailView.swift */; };
 		FAB86F8F291D9575005C0E01 /* MapUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB86F8E291D9575005C0E01 /* MapUIView.swift */; };
 		FAD0C0EB291E42BF00E5CDFE /* LiveHikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0C0EA291E42BF00E5CDFE /* LiveHikeView.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA234FE8292B52B00094994B /* LocationRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRequestView.swift; sourceTree = "<group>"; };
+		FA234FEA292B52EB0094994B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FA56BF88291B2B9F00F1A002 /* Hiking-Trails.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Hiking-Trails.entitlements"; sourceTree = "<group>"; };
 		FA619E93291CAC6B00C496AF /* TrailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailView.swift; sourceTree = "<group>"; };
 		FAB86F8E291D9575005C0E01 /* MapUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUIView.swift; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 				FAB86F8E291D9575005C0E01 /* MapUIView.swift */,
 				FAD0C0EA291E42BF00E5CDFE /* LiveHikeView.swift */,
 				FAF63C6E29244B1100B62353 /* ProfileView.swift */,
+				FA234FE8292B52B00094994B /* LocationRequestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 				FAEFDA17290B45C000C591B2 /* Info.plist */,
 				FAEFDA14290B45C000C591B2 /* Hiking_Trails.xcdatamodeld */,
 				FAEFDA0F290B45C000C591B2 /* Preview Content */,
+				FA234FEA292B52EB0094994B /* LocationManager.swift */,
 			);
 			path = "Hiking-Trails";
 			sourceTree = "<group>";
@@ -289,7 +295,9 @@
 			files = (
 				FAF63C6F29244B1100B62353 /* ProfileView.swift in Sources */,
 				FAEFDA13290B45C000C591B2 /* Persistence.swift in Sources */,
+				FA234FEB292B52EB0094994B /* LocationManager.swift in Sources */,
 				FAB86F8F291D9575005C0E01 /* MapUIView.swift in Sources */,
+				FA234FE9292B52B00094994B /* LocationRequestView.swift in Sources */,
 				FAEFDA0C290B45BF00C591B2 /* ContentView.swift in Sources */,
 				FA619E94291CAC6B00C496AF /* TrailView.swift in Sources */,
 				FAEFDA16290B45C000C591B2 /* Hiking_Trails.xcdatamodeld in Sources */,
@@ -458,7 +466,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Hiking-Trails/Info.plist";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location is used to personalize the hiking experience.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location is used to keep track of your hikes while the app is closed.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location is used to presonalize your hiking experience.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -490,7 +499,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Hiking-Trails/Info.plist";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location is used to personalize the hiking experience.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location is used to keep track of your hikes while the app is closed.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location is used to presonalize your hiking experience.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

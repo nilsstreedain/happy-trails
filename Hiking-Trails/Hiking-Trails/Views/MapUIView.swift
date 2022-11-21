@@ -9,19 +9,10 @@ import SwiftUI
 import MapKit
 
 struct MapUIView: UIViewRepresentable {
-	let locationManager = CLLocationManager()
 	let mapView = MKMapView(frame: UIScreen.main.bounds)
 	var mapPoints: [CLLocation] = []
 	
-	func setupManager() {
-		locationManager.requestWhenInUseAuthorization()
-		locationManager.desiredAccuracy = kCLLocationAccuracyBest
-		locationManager.distanceFilter = kCLDistanceFilterNone
-		locationManager.startUpdatingLocation()
-	}
-	
 	func makeUIView(context: Context) -> MKMapView {
-		setupManager()
 		mapView.delegate = context.coordinator
 		mapView.isUserInteractionEnabled = false
 		mapView.userTrackingMode = .followWithHeading
@@ -34,11 +25,11 @@ struct MapUIView: UIViewRepresentable {
 	func updateUIView(_ uiView: MKMapView, context: Context) {}
 	
 	mutating func startTracking() {
-		mapPoints.append(locationManager.location!)
+		mapPoints.append(LocationManager.shared.userLocation!)
 	}
 	
 	mutating func updateTracking() -> Double {
-		let curr = locationManager.location!
+		let curr = LocationManager.shared.userLocation!
 		let dist = mapPoints.last!.distance(from: curr)
 		if dist > 5 {
 			mapPoints.append(curr)
@@ -55,11 +46,11 @@ struct MapUIView: UIViewRepresentable {
 	}
 	
 	func getElevation() -> Double {
-		return Measurement(value: locationManager.location!.altitude, unit: UnitLength.meters).converted(to: .feet).value
+		return Measurement(value: LocationManager.shared.userLocation!.altitude, unit: UnitLength.meters).converted(to: .feet).value
 	}
 	
 	func getElevationGain() -> Double {
-			return Measurement(value: locationManager.location!.altitude - mapPoints[0].altitude, unit: UnitLength.meters).converted(to: .feet).value
+		return Measurement(value: LocationManager.shared.userLocation!.altitude - mapPoints[0].altitude, unit: UnitLength.meters).converted(to: .feet).value
 	}
 	
 	func makeCoordinator() -> Coordinator {
