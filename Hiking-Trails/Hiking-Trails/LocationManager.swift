@@ -9,14 +9,17 @@ import CoreLocation
 
 class LocationManager: NSObject, ObservableObject {
 	private let manager = CLLocationManager()
-	@Published var userLocation: CLLocation?
+	@Published var location: CLLocation?
+	@Published var status = false
 	static let shared = LocationManager()
 	
 	override init() {
 		super.init()
-		manager.delegate = self
 		manager.desiredAccuracy = kCLLocationAccuracyBest
+		manager.distanceFilter = kCLDistanceFilterNone
+//		manager.requestAlwaysAuthorization()
 		manager.startUpdatingLocation()
+		manager.delegate = self
 	}
 	
 	func requestLocation() {
@@ -25,27 +28,38 @@ class LocationManager: NSObject, ObservableObject {
 }
 
 extension LocationManager: CLLocationManagerDelegate {
-	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-		
-		switch status {
-			
-		case .notDetermined:
-			print("DEBUG: Not detemined")
-		case .restricted:
-			print("DEBUG: Restricted")
-		case .denied:
-			print("DEBUG: Denied")
-		case .authorizedAlways:
-			print("DEBUG: Auth Always")
-		case .authorizedWhenInUse:
-			print("DEBUG: When In Use")
-		@unknown default:
-			break
+	func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+		switch manager.authorizationStatus {
+		case .notDetermined , .restricted , .denied:
+			status = false
+		case .authorizedAlways , .authorizedWhenInUse:
+			status = true
+		default:
+			status = false
 		}
 	}
+	
+//	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//		self.status = status
+//		switch status {
+//
+//		case .notDetermined:
+//			print("DEBUG: Not detemined")
+//		case .restricted:
+//			print("DEBUG: Restricted")
+//		case .denied:
+//			print("DEBUG: Denied")
+//		case .authorizedAlways:
+//			print("DEBUG: Auth Always")
+//		case .authorizedWhenInUse:
+//			print("DEBUG: When In Use")
+//		@unknown default:
+//			break
+//		}
+//	}
 
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		guard let location = locations.last else { return }
-		self.userLocation = location
+		self.location = location
 	}
 }

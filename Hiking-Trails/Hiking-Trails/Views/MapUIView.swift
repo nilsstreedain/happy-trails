@@ -9,6 +9,8 @@ import SwiftUI
 import MapKit
 
 struct MapUIView: UIViewRepresentable {
+	var locationManager = LocationManager.shared
+	
 	let mapView = MKMapView(frame: UIScreen.main.bounds)
 	var mapPoints: [CLLocation] = []
 	
@@ -25,11 +27,11 @@ struct MapUIView: UIViewRepresentable {
 	func updateUIView(_ uiView: MKMapView, context: Context) {}
 	
 	mutating func startTracking() {
-		mapPoints.append(LocationManager.shared.userLocation!)
+		mapPoints.append(locationManager.location!)
 	}
 	
 	mutating func updateTracking() -> Double {
-		let curr = LocationManager.shared.userLocation!
+		let curr = locationManager.location!
 		let dist = mapPoints.last!.distance(from: curr)
 		if dist > 5 {
 			mapPoints.append(curr)
@@ -46,11 +48,12 @@ struct MapUIView: UIViewRepresentable {
 	}
 	
 	func getElevation() -> Double {
-		return Measurement(value: LocationManager.shared.userLocation!.altitude, unit: UnitLength.meters).converted(to: .feet).value
+//		return Measurement(value: locationManager.location!.altitude, unit: UnitLength.meters).converted(to: .feet).value
+		return 0
 	}
 	
 	func getElevationGain() -> Double {
-		return Measurement(value: LocationManager.shared.userLocation!.altitude - mapPoints[0].altitude, unit: UnitLength.meters).converted(to: .feet).value
+		return Measurement(value: locationManager.location!.altitude - mapPoints[0].altitude, unit: UnitLength.meters).converted(to: .feet).value
 	}
 	
 	func makeCoordinator() -> Coordinator {
@@ -88,5 +91,6 @@ class Coordinator: NSObject, MKMapViewDelegate {
 struct MapUIView_Previews: PreviewProvider {
 	static var previews: some View {
 		MapUIView()
+			.environmentObject(LocationManager())
 	}
 }
