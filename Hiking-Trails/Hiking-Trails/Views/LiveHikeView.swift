@@ -8,36 +8,36 @@
 import SwiftUI
 
 struct LiveHikeView: View {
-	@ObservedObject var currHike = Current_Hike()
+	@ObservedObject var hikeView = Current_Hike()
 	
-    var body: some View {
+	var body: some View {
 		VStack {
-			currHike.map
+			hikeView.map
 				.ignoresSafeArea()
 			HStack(spacing: 50) {
-				Label(String(format: "%02d:%02d", Int(currHike.counter) / 60, Int(currHike.counter) % 60), systemImage: "timer")
-				Label("0 MI", systemImage: "lines.measurement.horizontal")
-				Label("0'0\"/MI", systemImage: "figure.run")
+				Label(String(format: "%02d:%02d", Int(hikeView.counter) / 60, Int(hikeView.counter) % 60), systemImage: "timer")
+				Label(String(format: "%.2f MI", hikeView.distance), systemImage: "lines.measurement.horizontal")
+				Label(String(format: "%1d'%02d\"/MI", Int(hikeView.pace) / 60, Int(hikeView.pace) % 60), systemImage: "figure.run")
 			}
 			.padding(5)
 			HStack(spacing: 50) {
-				Label("0 CAL", systemImage: "flame")
-				Label("+0 FT", systemImage: "mountain.2")
+				Label("0 CAL", systemImage: "flame.fill")
+				Label(String(format: "%.0f' | %.0f'", hikeView.map.getElevation(), hikeView.elvGain), systemImage: "mountain.2.fill")
 			}
 			.padding(5)
 			HStack() {
-				if currHike.mode == .stopped {
-					hikeButton(label: "Start Hike", color: Color("AccentColor"), op: self.currHike.start)
-				} else if currHike.mode == .started {
-					hikeButton(label: "Pause Hike", color: Color.orange, op: self.currHike.pause)
-					hikeButton(label: "End Hike", color: Color.red, op: self.currHike.reset)
-				} else if currHike.mode == .paused {
-					hikeButton(label: "Resume Hike", color: Color.green, op: self.currHike.start)
-					hikeButton(label: "End Hike", color: Color.red, op: self.currHike.reset)
+				if hikeView.mode == .stopped {
+					hikeButton(label: "Start Hike", color: Color("AccentColor"), op: hikeView.start)
+				} else if hikeView.mode == .started {
+					hikeButton(label: "Pause Hike", color: Color.orange, op: hikeView.pause)
+					hikeButton(label: "End Hike", color: Color.red, op: hikeView.reset)
+				} else if hikeView.mode == .paused {
+					hikeButton(label: "Resume Hike", color: Color.green, op: hikeView.start)
+					hikeButton(label: "End Hike", color: Color.red, op: hikeView.reset)
 				}
 			}
 		}
-    }
+	}
 }
 
 struct hikeButton: View {
@@ -47,47 +47,57 @@ struct hikeButton: View {
 	
 	var body: some View {
 		Button(action: {op()}) {
-  			Text(label)
+			Text(label)
 			.frame(maxWidth: .infinity)
-  			.padding(5)
-  		}
-  		.buttonStyle(.borderedProminent)
-  		.accentColor(color)
-  		.padding(10)
+			.padding(5)
+		}
+		.buttonStyle(.borderedProminent)
+		.accentColor(color)
+		.padding(10)
 	}
 }
 
 class Current_Hike: ObservableObject {
-	@Published var counter: Double = 0
 	@Published var mode: hikeMode = .stopped
-	@Published var map = MapUIView()
+	@Published var counter = 0.0
+	@Published var distance = 0.0
+	@Published var pace = 0.0
+	@Published var elvGain = 0.0
+	var map = MapUIView()
 	var timer = Timer()
-	
+
 	enum hikeMode {
 		case started
 		case paused
 		case stopped
 	}
-	
+
 	func start() {
 		mode = .started
-		self.map.startPolyline()
-		self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+		map.startTracking()
+		timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
 			self.counter += 1
-			self.map.updatePolyline()
+			self.distance += self.map.updateTracking()
+			self.elvGain = self.map.getElevationGain()
+			if self.distance > 0 {
+				self.pace = self.counter / self.distance
+			}
 		}
 	}
-	
+
 	func pause() {
 		mode = .paused
-		self.timer.invalidate()
+		timer.invalidate()
 	}
-	
+
 	func reset() {
 		mode = .stopped
-		self.counter = 0
-		self.timer.invalidate()
-		self.map.resetPolyline()
+		counter = 0
+		distance = 0
+		elvGain = 0
+		pace = 0
+		timer.invalidate()
+		map.resetTracking()
 	}
 }
 
