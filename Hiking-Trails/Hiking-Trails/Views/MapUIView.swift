@@ -27,11 +27,11 @@ struct MapUIView: UIViewRepresentable {
 	func updateUIView(_ uiView: MKMapView, context: Context) {}
 	
 	mutating func startTracking() {
-		mapPoints.append(locationManager.location!)
+		mapPoints.append(locationManager.location)
 	}
 	
 	mutating func updateTracking() -> Double {
-		let curr = locationManager.location!
+		let curr = locationManager.location
 		let dist = mapPoints.last!.distance(from: curr)
 		if dist > 5 {
 			mapPoints.append(curr)
@@ -48,12 +48,11 @@ struct MapUIView: UIViewRepresentable {
 	}
 	
 	func getElevation() -> Double {
-//		return Measurement(value: locationManager.location!.altitude, unit: UnitLength.meters).converted(to: .feet).value
-		return 0
+		return Measurement(value: locationManager.location.altitude, unit: UnitLength.meters).converted(to: .feet).value
 	}
 	
 	func getElevationGain() -> Double {
-		return Measurement(value: locationManager.location!.altitude - mapPoints[0].altitude, unit: UnitLength.meters).converted(to: .feet).value
+		return Measurement(value: locationManager.location.altitude - mapPoints[0].altitude, unit: UnitLength.meters).converted(to: .feet).value
 	}
 	
 	func makeCoordinator() -> Coordinator {
