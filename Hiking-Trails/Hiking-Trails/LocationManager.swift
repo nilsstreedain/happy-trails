@@ -9,15 +9,14 @@ import CoreLocation
 
 class LocationManager: NSObject, ObservableObject {
 	private let manager = CLLocationManager()
-	@Published var location: CLLocation?
-	@Published var status = false
+	@Published var location = CLLocation(latitude: 0, longitude: 0)
+	@Published var status: CLAuthorizationStatus?
 	static let shared = LocationManager()
 	
 	override init() {
 		super.init()
 		manager.desiredAccuracy = kCLLocationAccuracyBest
 		manager.distanceFilter = kCLDistanceFilterNone
-//		manager.requestAlwaysAuthorization()
 		manager.startUpdatingLocation()
 		manager.delegate = self
 	}
@@ -29,34 +28,8 @@ class LocationManager: NSObject, ObservableObject {
 
 extension LocationManager: CLLocationManagerDelegate {
 	func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-		switch manager.authorizationStatus {
-		case .notDetermined , .restricted , .denied:
-			status = false
-		case .authorizedAlways , .authorizedWhenInUse:
-			status = true
-		default:
-			status = false
-		}
+		status = manager.authorizationStatus
 	}
-	
-//	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//		self.status = status
-//		switch status {
-//
-//		case .notDetermined:
-//			print("DEBUG: Not detemined")
-//		case .restricted:
-//			print("DEBUG: Restricted")
-//		case .denied:
-//			print("DEBUG: Denied")
-//		case .authorizedAlways:
-//			print("DEBUG: Auth Always")
-//		case .authorizedWhenInUse:
-//			print("DEBUG: When In Use")
-//		@unknown default:
-//			break
-//		}
-//	}
 
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		guard let location = locations.last else { return }

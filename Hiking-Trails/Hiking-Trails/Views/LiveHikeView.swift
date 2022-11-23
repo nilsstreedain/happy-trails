@@ -9,31 +9,34 @@ import SwiftUI
 
 struct LiveHikeView: View {
 	@ObservedObject var hikeView = Current_Hike()
+	@ObservedObject var locationManager = LocationManager.shared
 	
 	var body: some View {
-		VStack {
-			hikeView.map
-				.ignoresSafeArea()
-			HStack(spacing: 50) {
-				Label(String(format: "%02d:%02d", Int(hikeView.counter) / 60, Int(hikeView.counter) % 60), systemImage: "timer")
-				Label(String(format: "%.2f MI", hikeView.distance), systemImage: "lines.measurement.horizontal")
-				Label(String(format: "%1d'%02d\"/MI", Int(hikeView.pace) / 60, Int(hikeView.pace) % 60), systemImage: "figure.run")
-			}
-			.padding(5)
-			HStack(spacing: 50) {
-				Label("0 CAL", systemImage: "flame.fill")
-				Label(String(format: "%.0f' | %.0f'", hikeView.map.getElevation(), hikeView.elvGain), systemImage: "mountain.2.fill")
-			}
-			.padding(5)
-			HStack() {
-				if hikeView.mode == .stopped {
-					hikeButton(label: "Start Hike", color: Color("AccentColor"), op: hikeView.start)
-				} else if hikeView.mode == .started {
-					hikeButton(label: "Pause Hike", color: Color.orange, op: hikeView.pause)
-					hikeButton(label: "End Hike", color: Color.red, op: hikeView.reset)
-				} else if hikeView.mode == .paused {
-					hikeButton(label: "Resume Hike", color: Color.green, op: hikeView.start)
-					hikeButton(label: "End Hike", color: Color.red, op: hikeView.reset)
+		if (locationManager.status == .authorizedAlways || locationManager.status == .authorizedWhenInUse) {
+			VStack {
+				hikeView.map
+					.ignoresSafeArea()
+				HStack(spacing: 50) {
+					Label(String(format: "%02d:%02d", Int(hikeView.counter) / 60, Int(hikeView.counter) % 60), systemImage: "timer")
+					Label(String(format: "%.2f MI", hikeView.distance), systemImage: "lines.measurement.horizontal")
+					Label(String(format: "%1d'%02d\"/MI", Int(hikeView.pace) / 60, Int(hikeView.pace) % 60), systemImage: "figure.run")
+				}
+				.padding(5)
+				HStack(spacing: 50) {
+					Label("0 CAL", systemImage: "flame.fill")
+					Label(String(format: "%.0f' | %.0f'", hikeView.map.getElevation(), hikeView.elvGain), systemImage: "mountain.2.fill")
+				}
+				.padding(5)
+				HStack() {
+					if hikeView.mode == .stopped {
+						hikeButton(label: "Start Hike", color: Color("AccentColor"), op: hikeView.start)
+					} else if hikeView.mode == .started {
+						hikeButton(label: "Pause Hike", color: Color.orange, op: hikeView.pause)
+						hikeButton(label: "End Hike", color: Color.red, op: hikeView.reset)
+					} else if hikeView.mode == .paused {
+						hikeButton(label: "Resume Hike", color: Color.green, op: hikeView.start)
+						hikeButton(label: "End Hike", color: Color.red, op: hikeView.reset)
+					}
 				}
 			}
 		}
@@ -63,7 +66,7 @@ class Current_Hike: ObservableObject {
 	@Published var distance = 0.0
 	@Published var pace = 0.0
 	@Published var elvGain = 0.0
-	var map = MapUIView()
+	@Published var map = MapUIView()
 	var timer = Timer()
 
 	enum hikeMode {

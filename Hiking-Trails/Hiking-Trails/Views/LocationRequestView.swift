@@ -10,7 +10,7 @@ import SwiftUI
 struct LocationRequestView: View {
 	@ObservedObject var locationManager = LocationManager.shared
     var body: some View {
-		if !locationManager.status {
+		if !(locationManager.status == .authorizedAlways || locationManager.status == .authorizedWhenInUse) {
 			ZStack {
 				Color("AccentColor").ignoresSafeArea()
 				VStack {
@@ -31,7 +31,11 @@ struct LocationRequestView: View {
 					Spacer()
 					VStack {
 						Button {
-							locationManager.requestLocation()
+							if locationManager.status != .denied {
+								locationManager.requestLocation()
+							} else {
+								UIApplication.shared.open(URL(string:UIApplication.openSettingsURLString)!)
+							}
 						} label: {
 							Text("Allow location")
 								.padding()
