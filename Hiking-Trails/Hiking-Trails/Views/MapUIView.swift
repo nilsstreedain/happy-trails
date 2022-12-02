@@ -9,19 +9,12 @@ import SwiftUI
 import MapKit
 
 struct MapUIView: UIViewRepresentable {
-	let locationManager = CLLocationManager()
-	let mapView = MKMapView(frame: UIScreen.main.bounds)
-	var mapPoints: [CLLocationCoordinate2D] = []
+	var locationManager = LocationManager.shared
 	
-	func setupManager() {
-		locationManager.requestWhenInUseAuthorization()
-		locationManager.desiredAccuracy = kCLLocationAccuracyBest
-		locationManager.distanceFilter = kCLDistanceFilterNone
-		locationManager.startUpdatingLocation()
-	}
+	let mapView = MKMapView(frame: UIScreen.main.bounds)
+	var mapPoints: [CLLocation] = []
 	
 	func makeUIView(context: Context) -> MKMapView {
-		setupManager()
 		mapView.delegate = context.coordinator
 		mapView.isUserInteractionEnabled = false
 		mapView.userTrackingMode = .followWithHeading
@@ -33,23 +26,33 @@ struct MapUIView: UIViewRepresentable {
 	
 	func updateUIView(_ uiView: MKMapView, context: Context) {}
 	
-	mutating func startPolyline() {
-		mapPoints.append(locationManager.location!.coordinate)
+	mutating func startTracking() {
+		mapPoints.append(locationManager.location)
 	}
 	
-	mutating func updatePolyline() {
-		let curr = locationManager.location!
-		let last = CLLocation(latitude: mapPoints.last!.latitude, longitude: mapPoints.last!.longitude)
-		if last.distance(from: curr) > 5 {
-			mapPoints.append(curr.coordinate)
-			var area: [CLLocationCoordinate2D] = [mapPoints[mapPoints.count - 2], mapPoints.last!]
-			mapView.addOverlay(MKPolyline(coordinates: &area, count: 2))
+	mutating func updateTracking() -> Double {
+		let curr = locationManager.location
+		let dist = mapPoints.last!.distance(from: curr)
+		if dist > 5 {
+			mapPoints.append(curr)
+			mapView.addOverlay(MKPolyline(coordinates: mapPoints.suffix(2).map { $0.coordinate }, count: 2))
+			return Measurement(value: dist, unit: UnitLength.meters).converted(to: .miles).value
 		}
+		
+		return 0
 	}
 	
-	mutating func resetPolyline() {
-		mapPoints = []
+	mutating func resetTracking() {
 		mapView.removeOverlays(mapView.overlays)
+		mapPoints = []
+	}
+	
+	func getElevation() -> Double {
+		return Measurement(value: locationManager.location.altitude, unit: UnitLength.meters).converted(to: .feet).value
+	}
+	
+	func getElevationGain() -> Double {
+		return Measurement(value: locationManager.location.altitude - mapPoints[0].altitude, unit: UnitLength.meters).converted(to: .feet).value
 	}
 	
 	func makeCoordinator() -> Coordinator {
@@ -71,11 +74,22 @@ class Coordinator: NSObject, MKMapViewDelegate {
 		}
 		return MKOverlayRenderer()
 	}
-    
+	
+//	func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+//		let curr = userLocation.location
+//		if (parent.tracking && curr != nil && curr!.horizontalAccuracy <= 50.0) {
+//			mapPoints.append(curr!)
+//			if (mapPoints.count > 1) {
+//				var area: [CLLocationCoordinate2D] = [mapPoints[mapPoints.count - 2].coordinate, mapPoints.last!.coordinate]
+//				mapView.addOverlay(MKPolyline(coordinates: &area, count: 2))
+//			}
+//		}
+//	}
 }
 
 struct MapUIView_Previews: PreviewProvider {
 	static var previews: some View {
 		MapUIView()
+			.environmentObject(LocationManager())
 	}
 }
