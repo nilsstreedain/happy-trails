@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://user-images.githubusercontent.com/25465133/198499623-70dc41a4-b1aa-43e4-9d5e-8854ffb6f45d.png" width="300px">
+<img width="300px" src="/Hiking-Trails/Hiking-Trails/Assets.xcassets/AppIcon.appiconset/icon.png">
 </p>
 
 # Happy-Trails
@@ -37,4 +37,10 @@ An iPhone has a CPU using the Arm architecture, with limited RAM and adequate di
 The second hardware component is a server that stores and provides access to app data. The server must be able to receive and provide user account information, trail data, and user interaction features such as comments or photos. It is our goal to limit the amount of data stored on the server to make the app as scalable as possible – keeping functionality on the phone decreases our marginal cost of adding a user. The server itself is relatively platform-agnostic. It will have access to one or several databases and will run an API to provide access to them. The hardware of our server must be able to support the number of people using the service, and will need adequate processing power, disk space, and memory. We predict that the server will mostly be limited by disk space, as the total number of API calls should be proportional to the number of users. We believe that a hosted cloud-based server is likely the best solution for our service, as it offers higher bandwidth, lower latency, ease of setup, and is scalable in the long term. If we have a hosted VM, it will likely have an arbitrary Linux installation, an x86 architecture, and entry-level processing power, RAM, and disk space.
 
 ### Contributers:
-Nils Streedain, Jackson Hart, Jack Stevenson, Cameron Crutcher, Max Taylor, Luis Luna, and Hayden Burgess
+- [Nils Streedain](https://github.com/nilsstreedain)
+- [Jack Stevenson](https://github.com/js567)
+- [Jackson Hart](https://github.com/jackhart591)
+- [Cameron Crutcher](https://github.com/CameronCrutcher)
+- [Hayden Burgess](https://github.com/burgessh20)
+- [Luis Luna](https://github.com/TomaidoSoup)
+- [Max Taylor](https://github.com/MaxlikeTT)
